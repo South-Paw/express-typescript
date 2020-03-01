@@ -1,10 +1,11 @@
 {
   "name": "@south-paw/express-typescript",
   "version": "0.0.1",
-  "description": "",
+  "description": "Simple boilerplate for a Express server with Typescript, ESLint, Prettier and Jest",
   "keywords": [],
   "homepage": "https://github.com/South-Paw/express-typescript",
   "bugs": "https://github.com/South-Paw/express-typescript/issues",
+  "license": "MIT",
   "author": {
     "name": "Alex Gabites",
     "email": "hello@southpaw.co.nz",
