@@ -8,7 +8,7 @@ A quick and simple boilerplate for that next Express project.
 
 - Typescript, ESLint, Prettier and Jest are ready to roll
 - Config has `.env` file support
-- Simple `/health` route implemented
+- Simple `/api/health` route implemented
 
 The following middleware are also implemented
 
