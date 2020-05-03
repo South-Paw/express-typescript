@@ -1,6 +1,7 @@
-import { OptionsJson } from 'body-parser';
+import { OptionsJson as BodyParserOptions } from 'body-parser';
 import { CorsOptions } from 'cors';
 import dotenv from 'dotenv';
+import pinoLogger from 'express-pino-logger';
 import { Options as RateLimitOptions } from 'express-rate-limit';
 
 const { name, version } = require('../package.json');
@@ -15,6 +16,12 @@ export const appConfig = {
   port: process.env.APP_PORT ? Number.parseInt(process.env.APP_PORT, 10) : 7070,
 };
 
+// express body-parser config
+// https://github.com/expressjs/body-parser
+export const bodyParserConfig: BodyParserOptions = {
+  limit: '1mb',
+};
+
 // express cors config
 // https://github.com/expressjs/cors
 export const corsConfig: CorsOptions = {
@@ -24,10 +31,14 @@ export const corsConfig: CorsOptions = {
   exposedHeaders: ['Content-Length', 'Date', 'X-Request-Id'],
 };
 
-// express body-parser config
-// https://github.com/expressjs/body-parser
-export const bodyParserConfig: OptionsJson = {
-  limit: '1mb',
+// express-pino-logger config
+// https://github.com/pinojs/pino
+export const pinoConfig: pinoLogger.Options = {
+  enabled: true,
+  level: process.env.LOGGER_LEVEL || 'info',
+  redact: {
+    paths: ['req.headers.authorization', 'req.headers.cookie'],
+  },
 };
 
 // express-rate-limit config
